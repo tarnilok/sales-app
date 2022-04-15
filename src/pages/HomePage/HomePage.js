@@ -1,9 +1,13 @@
+//hooks
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+//apiconnectors
 import { ApiFetcher } from "../../api/ConnectApi";
+//style
 import styling from "./HomePage.module.scss";
+//assets
 import addbutton from "../../assets/addbutton.svg";
-
+//endpoints
 const getProductsUrl = "https://62286b649fd6174ca82321f1.mockapi.io/case-study/products/";
 const getCategoriesUrl = "https://62286b649fd6174ca82321f1.mockapi.io/case-study/categories/";
 
@@ -22,7 +26,8 @@ const HomePage = () => {
 
   const SearchProduct = (e) => {
     const searchedList = [];
-    if (e.key === "Enter") {
+    if (e.key === "Enter" || e.keyCode === 13) {
+      // eslint-disable-next-line array-callback-return
       productList.map((prod) => {
         if (prod.name.toLowerCase().includes(e.target.value.toLowerCase())) searchedList.push(prod);
       });
