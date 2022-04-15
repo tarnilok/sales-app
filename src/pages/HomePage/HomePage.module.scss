@@ -1,0 +1,96 @@
+.main {
+  margin-top: 4vh;
+  .section1 {
+    display: flex;
+    .search {
+      font-family: FiraSans-Regular;
+      margin-right: auto;
+      font-size: 1rem;
+      padding: 1vh;
+      box-shadow: 1px 0 10px 1px gray;
+      border: none;
+      border-radius: 4px;
+      width: 25vw;
+      &:focus {
+        outline: none;
+      }
+    }
+    .select {
+      font-family: FiraSans-Regular;
+      margin-left: auto;
+      font-size: 1rem;
+      padding: 1vh;
+      box-shadow: 1px 0 10px 1px gray;
+      border: none;
+      border-radius: 4px;
+      width: auto;
+      &:focus {
+        outline: none;
+      }
+    }
+  }
+  .section2 {
+    margin-top: 5vh;
+    display: flex;
+    flex-wrap: wrap;
+    padding: 0 5vw;
+    .container {
+      width: 11vw;
+      height: 18vw;
+      margin: 0 2vw;
+      display: flex;
+      flex-direction: column;
+      .imgcontainer {
+        box-shadow: 0px 0 1px 0px gray;
+        border-radius: 10px;
+        background-color: white;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 75%;
+        &:hover{
+            cursor: pointer;
+        }
+        .image {
+          flex-shrink: 0;
+          width: 100%;
+          background-repeat: 'no-repeat';
+          background-size: 'cover';
+          background-position: 'center';
+        }
+      }
+      .name {
+        font-family: FiraSans-Medium;
+        font-size: medium;
+        margin-top: 11px;
+        padding: 0 7px;
+        display: block;
+        font-size: 1rem;
+        text-align: left;
+        display: -webkit-box;
+        -webkit-line-clamp: 1;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+      }
+      .price {
+        font-family: FiraSans-Medium;
+        margin-top: 7px;
+        display: block;
+        text-align: center;
+        font-size: 1.1rem;
+      }
+    }
+  }
+  .addbutton {
+      position: fixed;
+      width: 5vw;
+      right: 10vw;
+      bottom: 10vh;
+      &:hover {
+        cursor: pointer;
+      }
+      &:active {
+        transform: translateY(1px);
+      }
+  }
+}

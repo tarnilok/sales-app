@@ -1,0 +1,49 @@
+.main {
+  margin: 7vh 0;
+  width: 500px;
+  align-self: center;
+  .title {
+    font-family: 'FiraSans-Medium';
+    font-size: 2rem;
+    text-align: center;
+  }
+  .form {
+    margin: 2vh 0;
+    display: flex;
+    flex-direction: column;
+    .input,
+    .inputtextarea,
+    .button {
+      border: none;
+      margin: 1vh 0;
+      box-shadow: 1px 0 5px 1px gray;
+      border-radius: 7px;
+      height: 4vh;
+      padding: 2vh;
+      font-size: 0.9rem;
+      &:focus {
+        outline: none;
+        box-shadow: 1px 0 10px 1px gray;
+      }
+    }
+    .inputtextarea {
+      height: auto;
+    }
+    .button {
+      font-family: FiraSans-SemiBold;
+      padding: 0;
+      font-size: 1.3rem;
+      letter-spacing: 2.5px;
+      margin-top: 3vh;
+      background-color: seashell;
+      &:hover {
+        cursor: pointer;
+        box-shadow: 1px 0 10px 1px gray;
+      }
+      &:active {
+        transform: translateY(1px);
+        
+      }
+    }
+  }
+}
