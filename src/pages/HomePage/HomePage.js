@@ -16,8 +16,6 @@ const HomePage = () => {
   const [categoryList, setCategoryList] = useState([]);
   const [productsHolder, setProductsHolder] = useState(false);
   const navigate = useNavigate();
-  // console.log(productList);
-  // console.log(categoryList);
 
   useEffect(() => {
     ApiFetcher(getProductsUrl, setProductsList, setProductsHolder);

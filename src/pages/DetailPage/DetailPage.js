@@ -21,7 +21,6 @@ const DetailPage = () => {
   const { id } = useParams();
   const navigate = useNavigate();
 
-  // console.log(productData);
   useEffect(() => {
     ApiFetcher(getProductsUrl + `${id}`, setProductData);
   }, [id]);

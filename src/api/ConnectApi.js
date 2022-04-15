@@ -5,7 +5,7 @@ export const ApiFetcher = async (url, setState, setProductsHolder) => {
   try {
     const response = await axios.get(url);
     setState(response.data);
-    setProductsHolder(response.data)
+    setProductsHolder(response.data);
   } catch (error) {
     console.log(error);
   }
