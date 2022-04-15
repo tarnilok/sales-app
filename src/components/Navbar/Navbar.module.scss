@@ -9,13 +9,24 @@
   padding: 2vh;
   display: flex;
   align-items: center;
+  @media(max-width: 500px) {
+      flex-direction: column;
+      height: auto;
+  }
   &:hover {
     cursor: pointer;
   }
   .leftside {
     margin-right: auto;
+    @media(max-width: 500px) {
+        margin: auto;
+    }
   }
   .rightside {
     margin-left: auto;
+    @media(max-width: 500px) {
+        margin: auto;
+        margin-top: 20px;
+    }
   }
 }
