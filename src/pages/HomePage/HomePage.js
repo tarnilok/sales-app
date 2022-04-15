@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { ApiFetcher } from "../../api/ConnectApi";
 import styling from "./HomePage.module.scss";
-import addbutton from "../../assets/addbutton.svg"
+import addbutton from "../../assets/addbutton.svg";
 
 const getProductsUrl = "https://62286b649fd6174ca82321f1.mockapi.io/case-study/products/";
 const getCategoriesUrl = "https://62286b649fd6174ca82321f1.mockapi.io/case-study/categories/";
@@ -10,23 +10,38 @@ const getCategoriesUrl = "https://62286b649fd6174ca82321f1.mockapi.io/case-study
 const HomePage = () => {
   const [productList, setProductsList] = useState([]);
   const [categoryList, setCategoryList] = useState([]);
-  const navigate = useNavigate()
+  const [switcher, setSwitcher] = useState(false);
+  const navigate = useNavigate();
   console.log(productList);
   console.log(categoryList);
 
   useEffect(() => {
     ApiFetcher(getProductsUrl, setProductsList);
     ApiFetcher(getCategoriesUrl, setCategoryList);
-  }, []);
+  }, [switcher]);
+
+
+  const SearchProduct = (e) => {
+    const searchedList = [];
+    if (e.key === "Enter") {
+      productList.map((prod) => {
+        if (prod.name.toLowerCase().includes(e.target.value.toLowerCase())) searchedList.push(prod);
+      });
+      setProductsList(searchedList);
+    }
+  };
+
+  const CategoryFilter = (e) => {
+    setProductsList(productList.filter((data) => data.category === e.target.value));
+    if (e.target.value === "All Categories") setSwitcher(!switcher);
+  };
 
   return (
     <main className={styling.main}>
       <section className={styling.section1}>
-        <input type="search" placeholder="Search a product..." className={styling.search} />
-        <select className={styling.select}>
-          <option value="" hidden>
-            Categories
-          </option>
+        <input type="search" placeholder="Search a product..." className={styling.search} onKeyDown={(e) => SearchProduct(e)} />
+        <select className={styling.select} onChange={(e) => CategoryFilter(e)}>
+          <option>All Categories</option>
           {categoryList.map((data) => (
             <option key={data.id}>{data.name}</option>
           ))}
@@ -43,7 +58,7 @@ const HomePage = () => {
           </div>
         ))}
       </section>
-      <img src={addbutton} alt="addbutton" className={styling.addbutton} onClick={() => navigate("newproduct")}/>
+      <img src={addbutton} alt="addbutton" className={styling.addbutton} onClick={() => navigate("newproduct")} />
     </main>
   );
 };

@@ -9,15 +9,14 @@ export const ApiFetcher = async (url, setState) => {
   }
 };
 
-export const ApiPoster = async (url, data, setState) => {
+export const ApiHandler = async (url, data, method) => {
   try {
     const response = await axios({
-      method: "post",
+      method: method,
       url: url,
       data: data,
     });
-    // console.log(response.status)
-    setState(response.status);
+    return response;
   } catch (error) {
     console.log(error);
   }

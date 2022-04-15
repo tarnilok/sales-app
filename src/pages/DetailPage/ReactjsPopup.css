@@ -1,0 +1,51 @@
+
+.modal > .header {
+  width: 100%;
+  border-bottom: 1px solid gray;
+  font-size: 18px;
+  text-align: center;
+  padding: 20px 10px;
+  font-family: FiraSans-ExtraBold;
+  font-size: 2rem;
+}
+.modal > .actions {
+  width: 100%;
+  padding: 10px 5px;
+  margin: auto;
+  display: flex;
+  justify-content: space-around;
+}
+.button, .buttonclose {
+  font-family: FiraSans-SemiBold;
+  padding: 5px 20px;
+  margin: 20px 0px;
+  background-color: seashell;
+  border: none;
+  box-shadow: 1px 0 5px 1px gray;
+  border-radius: 7px;
+  font-size: 1.5rem;
+}
+  .button:hover {
+    cursor: pointer;
+    box-shadow: 1px 0 10px 4px rgb(14, 116, 14);
+  }
+  .buttonclose:hover {
+    cursor: pointer;
+    box-shadow: 1px 0 10px 4px rgb(136, 49, 9);
+  }
+.modal > .close {
+  cursor: pointer;
+  position: absolute;
+  display: block;
+  padding: 2px 5px;
+  line-height: 20px;
+  right: -10px;
+  top: -10px;
+  font-size: 24px;
+  background: #ffffff;
+  border-radius: 18px;
+  border: 1px solid #cfcece;
+}
+.popup-content {
+  width: 20%;
+}
