@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+//style
 import styling from "./CreateProduct.module.scss";
+//libraries
 import { successToastify, errorToastify } from "../../toastify/toastify";
 //apiconnectors
 import { ApiFetcher } from "../../api/ConnectApi";
 import { ApiHandler } from "../../api/ConnectApi";
-
 //endpoints
 const getCategoriesUrl = "https://62286b649fd6174ca82321f1.mockapi.io/case-study/categories/";
 const postProductUrl = "https://62286b649fd6174ca82321f1.mockapi.io/case-study/products";
@@ -44,7 +45,9 @@ const CreateProduct = () => {
             Categories
           </option>
           {categoryList.map((data) => (
-            <option value={data.name} key={data.id}>{data.name}</option>
+            <option value={data.name} key={data.id}>
+              {data.name}
+            </option>
           ))}
         </select>
         <input type="text" step=".01" placeholder="$ Price" name="price" className={styling.input} required />

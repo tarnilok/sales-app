@@ -12,14 +12,13 @@ const HomePage = () => {
   const [categoryList, setCategoryList] = useState([]);
   const [switcher, setSwitcher] = useState(false);
   const navigate = useNavigate();
-  console.log(productList);
-  console.log(categoryList);
+  // console.log(productList);
+  // console.log(categoryList);
 
   useEffect(() => {
     ApiFetcher(getProductsUrl, setProductsList);
     ApiFetcher(getCategoriesUrl, setCategoryList);
   }, [switcher]);
-
 
   const SearchProduct = (e) => {
     const searchedList = [];

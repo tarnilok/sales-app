@@ -1,4 +1,6 @@
+//libraries
 import { toast } from "react-toastify";
+//style
 import 'react-toastify/scss/main.scss'
 
 export const successToastify = (msg) => {

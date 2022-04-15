@@ -1,16 +1,17 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+//apiconnector
 import { ApiFetcher } from "../../api/ConnectApi";
-import Popup from "reactjs-popup";
 import { ApiHandler } from "../../api/ConnectApi";
-
 //style
 import styling from "./DetailPage.module.scss";
 import "reactjs-popup/dist/index.css";
 import "./ReactjsPopup.css";
-import { useNavigate } from "react-router-dom";
+//libraries
+import Popup from "reactjs-popup";
 import { successToastify, errorToastify } from "../../toastify/toastify";
-
+//endpoints
 const getProductsUrl = "https://62286b649fd6174ca82321f1.mockapi.io/case-study/products/";
 const deleteProductUrl = "https://62286b649fd6174ca82321f1.mockapi.io/case-study/products/";
 
@@ -19,7 +20,7 @@ const DetailPage = () => {
   const { id } = useParams();
   const navigate = useNavigate();
 
-  console.log(productData);
+  // console.log(productData);
   useEffect(() => {
     ApiFetcher(getProductsUrl + `${id}`, setProductData);
   }, [id]);
