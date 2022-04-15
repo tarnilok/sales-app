@@ -1,7 +1,11 @@
 .main {
   margin-top: 5vh;
-  max-width: 650px;
+  width: 650px;
   align-self: center;
+  @media (max-width: 768px) {
+   width: 100%;
+    max-width: 650px;
+  }
   .section1 {
     display: flex;
     max-height: 400px;

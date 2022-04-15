@@ -14,21 +14,21 @@ const getCategoriesUrl = "https://62286b649fd6174ca82321f1.mockapi.io/case-study
 const HomePage = () => {
   const [productList, setProductsList] = useState([]);
   const [categoryList, setCategoryList] = useState([]);
-  const [switcher, setSwitcher] = useState(false);
+  const [productsHolder, setProductsHolder] = useState(false);
   const navigate = useNavigate();
   // console.log(productList);
   // console.log(categoryList);
 
   useEffect(() => {
-    ApiFetcher(getProductsUrl, setProductsList);
+    ApiFetcher(getProductsUrl, setProductsList, setProductsHolder);
     ApiFetcher(getCategoriesUrl, setCategoryList);
-  }, [switcher]);
+  }, []);
 
   const SearchProduct = (e) => {
     const searchedList = [];
     if (e.key === "Enter" || e.keyCode === 13) {
       // eslint-disable-next-line array-callback-return
-      productList.map((prod) => {
+      productsHolder.map((prod) => {
         if (prod.name.toLowerCase().includes(e.target.value.toLowerCase())) searchedList.push(prod);
       });
       setProductsList(searchedList);
@@ -36,8 +36,11 @@ const HomePage = () => {
   };
 
   const CategoryFilter = (e) => {
-    setProductsList(productList.filter((data) => data.category === e.target.value));
-    if (e.target.value === "All Categories") setSwitcher(!switcher);
+    if (e.target.value === "All Categories") {
+      setProductsList(productsHolder);
+    } else {
+      setProductsList(productsHolder.filter((data) => data.category === e.target.value));
+    }
   };
 
   return (
