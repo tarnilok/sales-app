@@ -19,7 +19,7 @@
       rgba(0, 0, 0, 0.5) 50%
     );
   background-blend-mode: soft-light, screen;
-  padding: 4vh 10vw;
+  padding: 2.5vh 10vw;
   display: flex;
   flex-direction: column;
 }

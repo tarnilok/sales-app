@@ -2,6 +2,9 @@
   margin: 7vh 0;
   width: 500px;
   align-self: center;
+  @media (max-width: 768px) {
+    width: 100%;
+  }
   .title {
     font-family: 'FiraSans-Medium';
     font-size: 2rem;

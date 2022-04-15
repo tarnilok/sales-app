@@ -13,6 +13,9 @@
       flex-direction: column;
       height: auto;
   }
+  @media(max-width: 340px) {
+    font-size: 25px;
+}
   &:hover {
     cursor: pointer;
   }
