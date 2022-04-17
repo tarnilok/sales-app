@@ -7,6 +7,7 @@ import { ApiFetcher } from "../../api/ConnectApi";
 import styling from "./HomePage.module.scss";
 //assets
 import addbutton from "../../assets/addbutton.svg";
+import spinner from "../../assets/spinner.svg";
 //endpoints
 const getProductsUrl = "https://62286b649fd6174ca82321f1.mockapi.io/case-study/products/";
 const getCategoriesUrl = "https://62286b649fd6174ca82321f1.mockapi.io/case-study/categories/";
@@ -14,11 +15,12 @@ const getCategoriesUrl = "https://62286b649fd6174ca82321f1.mockapi.io/case-study
 const HomePage = () => {
   const [productList, setProductsList] = useState([]);
   const [categoryList, setCategoryList] = useState([]);
-  const [productsHolder, setProductsHolder] = useState(false);
+  const [productsHolder, setProductsHolder] = useState([]);
+  const [loading, setLoading] = useState(true);
   const navigate = useNavigate();
-
+  
   useEffect(() => {
-    ApiFetcher(getProductsUrl, setProductsList, setProductsHolder);
+    ApiFetcher(getProductsUrl, setProductsList, setProductsHolder, setLoading);
     ApiFetcher(getCategoriesUrl, setCategoryList);
   }, []);
 
@@ -53,15 +55,19 @@ const HomePage = () => {
         </select>
       </section>
       <section className={styling.section2}>
-        {productList.map((prod) => (
-          <div key={prod.id} className={styling.container}>
-            <div className={styling.imgcontainer} onClick={() => navigate(`detailsinfo/${prod.id}`)}>
-              <img src={prod.avatar} alt="productImage" className={styling.image} />
+        {loading ? (
+          <img src={spinner} className={styling.spinner} alt="spinner-gif" />
+        ) : (
+          productList.map((prod) => (
+            <div key={prod.id} className={styling.container}>
+              <div className={styling.imgcontainer} onClick={() => navigate(`detailsinfo/${prod.id}`)}>
+                <img src={prod.avatar} alt="productImage" className={styling.image} />
+              </div>
+              <span className={styling.name}>{prod.name}</span>
+              <span className={styling.price}>$ {prod.price}</span>
             </div>
-            <span className={styling.name}>{prod.name}</span>
-            <span className={styling.price}>$ {prod.price}</span>
-          </div>
-        ))}
+          ))
+        )}
       </section>
       <img src={addbutton} alt="addbutton" className={styling.addbutton} onClick={() => navigate("newproduct")} />
     </main>

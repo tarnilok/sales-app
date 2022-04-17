@@ -47,5 +47,16 @@
   border: 1px solid #cfcece;
 }
 .popup-content {
-  width: 20%;
+  width: 400px;
+}
+@media (max-width: 768px) {
+  .popup-content {
+    width: 300px;
+  }
+}
+
+@media (max-width: 425px) {
+  .popup-content {
+    width: 250px;
+  }
 }

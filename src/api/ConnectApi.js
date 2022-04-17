@@ -1,11 +1,12 @@
 //libraries
 import axios from "axios";
 
-export const ApiFetcher = async (url, setState, setProductsHolder) => {
+export const ApiFetcher = async (url, setState, setProductsHolder, setLoading) => {
   try {
     const response = await axios.get(url);
-    setState(response.data);
-    setProductsHolder(response.data);
+    setState(response?.data);
+    setProductsHolder(response?.data);
+    setLoading(false);
   } catch (error) {
     console.log(error);
   }
