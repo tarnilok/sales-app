@@ -26,7 +26,7 @@ const HomePage = () => {
 
   const SearchProduct = (e) => {
     const searchedList = [];
-    if (e.key === "Enter" || e.keyCode === 13) {
+    if (e.key === "Enter" || e.which === 13) {
       // eslint-disable-next-line array-callback-return
       productsHolder.map((prod) => {
         if (prod.name.toLowerCase().includes(e.target.value.toLowerCase())) searchedList.push(prod);
