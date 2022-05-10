@@ -8,6 +8,7 @@ import styling from "./HomePage.module.scss";
 //assets
 import addbutton from "../../assets/addbutton.svg";
 import spinner from "../../assets/spinner.svg";
+import noPhoto from "../../assets/NoPhotoAvailable.jpg";
 //endpoints
 const getProductsUrl = "https://62286b649fd6174ca82321f1.mockapi.io/case-study/products/";
 const getCategoriesUrl = "https://62286b649fd6174ca82321f1.mockapi.io/case-study/categories/";
@@ -61,7 +62,7 @@ const HomePage = () => {
           productList.map((prod) => (
             <div key={prod.id} className={styling.container}>
               <div className={styling.imgcontainer} onClick={() => navigate(`detailsinfo/${prod.id}`)}>
-                <img src={prod.avatar} alt="productImage" className={styling.image} />
+                <img src={prod.avatar.includes("http") ? prod.avatar : noPhoto} alt="productImage" className={styling.image} />
               </div>
               <span className={styling.name}>{prod.name}</span>
               <span className={styling.price}>$ {prod.price}</span>
